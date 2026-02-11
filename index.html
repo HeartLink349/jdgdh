@@ -253,26 +253,15 @@
         }
 
         function startCounter() {
-            const start = new Date("2025-08-15T00:00:00");
             setInterval(() => {
                 const now = new Date();
-                let diff = now - start;
-
-                let months = now.getMonth() - start.getMonth();
-                let days = now.getDate() - start.getDate();
-
-                if (days < 0) {
-                    months--;
-                    let lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-                    days += lastMonth.getDate();
-                }
-
-                // حساب إجمالي الشهور من تاريخ 15/8/2025
-                let totalMonths = (now.getFullYear() - start.getFullYear()) * 12 + months;
                 
+                // تثبيت السنين والشهور والأيام زي ما طلبت بالظبط
                 document.getElementById('years').innerText = "0";
-                document.getElementById('months').innerText = (totalMonths < 0) ? 0 : totalMonths;
-                document.getElementById('days').innerText = (days < 0 && totalMonths <= 0) ? 0 : days;
+                document.getElementById('months').innerText = "5";
+                document.getElementById('days').innerText = "26";
+                
+                // الساعات والدقائق والثواني تفضل شغالة لايف
                 document.getElementById('hours').innerText = now.getHours();
                 document.getElementById('mins').innerText = now.getMinutes();
                 document.getElementById('secs').innerText = now.getSeconds();
